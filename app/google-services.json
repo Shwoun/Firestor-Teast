@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "410751439177",
+    "firebase_url": "https://test-app-colon-default-rtdb.firebaseio.com",
+    "project_id": "test-app-colon",
+    "storage_bucket": "test-app-colon.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410751439177:android:d54524f8114f9e65e04a98",
+        "android_client_info": {
+          "package_name": "com.example.firestorteast"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZuUrIYmE3WUys8dnw3NAKygsv3cgMqhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
