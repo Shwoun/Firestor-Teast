@@ -15,12 +15,13 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.firestorteast.UserViewModel
 
 @Composable
 fun profile(viewModel: UserViewModel,navController: NavController) {
-    val user by viewModel.userData.collectAsState()
+    val user by viewModel.userData.collectAsStateWithLifecycle()
 
 
     Column(

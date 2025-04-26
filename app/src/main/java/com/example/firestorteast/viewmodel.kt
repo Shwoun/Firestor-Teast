@@ -6,6 +6,7 @@ import com.google.firebase.ktx.Firebase
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import com.google.api.OAuthRequirements
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -23,9 +24,16 @@ class UserViewModel : ViewModel() {
 
     fun userLogin(email: String, password: String, navController: NavController) {
         auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    navController.navigate("Home")
+            .addOnSuccessListener { task ->
+                task.user?.let { firebaseUser ->
+                    // Firestore থেকে ইউজার ডেটা ফেচ করুন
+                    db.collection("users").document(auth.currentUser?.uid?:"")
+                        .get()
+                        .addOnSuccessListener { document ->
+                            val user = document.toObject(User::class.java)
+                            _userData.value = user
+                            navController.navigate("Home")
+                        }
                 }
             }
             .addOnFailureListener {

@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModel
 import com.example.firestorteast.ui.theme.FirestorTeastTheme
 import com.google.firebase.FirebaseApp
 
@@ -21,7 +22,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         FirebaseApp.initializeApp(this)
         val ViewModel : UserViewModel by viewModels()
+       // val viewModel2 : viewModel by viewModels()
         setContent {
+
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     appmodel(ViewModel)
